@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6A75CAA240F9E7100DCDCD3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A75CA9240F9E7100DCDCD3 /* NetworkManager.swift */; };
 		A6FD178F240C09F000D92C82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FD178E240C09F000D92C82 /* AppDelegate.swift */; };
 		A6FD1791240C09F000D92C82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FD1790240C09F000D92C82 /* SceneDelegate.swift */; };
 		A6FD1793240C09F000D92C82 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FD1792240C09F000D92C82 /* SearchViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A6A75CA9240F9E7100DCDCD3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A6FD178B240C09F000D92C82 /* HomeWork2.10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeWork2.10.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FD178E240C09F000D92C82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6FD1790240C09F000D92C82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				A6FD178E240C09F000D92C82 /* AppDelegate.swift */,
 				A6FD1790240C09F000D92C82 /* SceneDelegate.swift */,
 				A6FD17A4240C2BFE00D92C82 /* ApiResponse.swift */,
+				A6A75CA9240F9E7100DCDCD3 /* NetworkManager.swift */,
 				A6FD1792240C09F000D92C82 /* SearchViewController.swift */,
 				A6FD17A2240C27EA00D92C82 /* RepositoryTableViewCell.swift */,
 				A6FD1794240C09F000D92C82 /* Main.storyboard */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6A75CAA240F9E7100DCDCD3 /* NetworkManager.swift in Sources */,
 				A6FD1793240C09F000D92C82 /* SearchViewController.swift in Sources */,
 				A6FD178F240C09F000D92C82 /* AppDelegate.swift in Sources */,
 				A6FD17A5240C2BFE00D92C82 /* ApiResponse.swift in Sources */,

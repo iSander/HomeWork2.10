@@ -18,26 +18,17 @@ class SearchViewController: UIViewController {
 
     @IBAction func searchAction() {
         guard let searchText = textField.text, !searchText.isEmpty else { return }
-        guard let url = URL(string: "https://api.github.com/search/repositories?q=\(searchText)") else { return }
         
         loadingLabel.isHidden = false
         
-        URLSession.shared.dataTask(with: url) { (data, _, error) in
-            if let error = error { print(error); return }
-            guard let data = data else { return }
-            
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            do {
-                self.apiResponse = try decoder.decode(ApiResponse.self, from: data)
+        NetworkManager.shared.fetchData(from: "https://api.github.com/search/repositories?q=\(searchText)",
+            with: { response in
                 DispatchQueue.main.async {
+                    self.apiResponse = response
                     self.tableView.reloadData()
                     self.loadingLabel.isHidden = true
                 }
-            } catch let error {
-                print(error)
-            }
-        }.resume()
+        })
     }
 }
 
