@@ -6,27 +6,20 @@
 //  Copyright © 2020 Alex Sander. All rights reserved.
 //
 
-import Foundation
+import Alamofire
 
 class NetworkManager {
     
     static let shared = NetworkManager()
     
     func fetchData(from urlString: String, with completion: @escaping (ApiResponse) -> Void) {
-        guard let url = URL(string: urlString) else { return }
         
-        URLSession.shared.dataTask(with: url) { (data, _, error) in
-            if let error = error { print(error.localizedDescription); return }
-            guard let data = data else { return }
-            
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            do {
-                let apiResponse = try decoder.decode(ApiResponse.self, from: data)
+        AF.request(urlString)
+            .validate()
+            .responseDecodable(of: ApiResponse.self) { response in
+                if let error = response.error { print(error); return }
+                guard let apiResponse = response.value else { return }
                 completion(apiResponse)
-            } catch let jsonError {
-                print(jsonError.localizedDescription)
-            }
-        }.resume()
+        }
     }
 }
