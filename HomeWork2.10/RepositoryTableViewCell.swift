@@ -16,7 +16,7 @@ class RepositoryTableViewCell: UITableViewCell {
     @IBOutlet weak var urlLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    @IBOutlet weak var ownerImageView: UIImageView!
+    @IBOutlet weak var ownerImageView: ImageView!
 
     func configure(with repository: Repository) {
         nameLabel.text = repository.name
@@ -25,14 +25,6 @@ class RepositoryTableViewCell: UITableViewCell {
         urlLabel.text = repository.htmlUrl
         starsLabel.text = "★\(repository.stargazersCount ?? 0)"
         
-        DispatchQueue.global().async {
-            guard let stringURL = repository.owner?.avatarUrl else { return }
-            guard let imageURL = URL(string: stringURL) else { return }
-            guard let imageData = try? Data(contentsOf: imageURL) else { return }
-
-            DispatchQueue.main.async {
-                self.ownerImageView?.image = UIImage(data: imageData)
-            }
-        }
+        ownerImageView.fetchImage(from: repository.owner?.avatarUrl)
     }
 }

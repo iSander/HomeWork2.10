@@ -17,9 +17,16 @@ class NetworkManager {
         AF.request(urlString)
             .validate()
             .responseDecodable(of: ApiResponse.self) { response in
-                if let error = response.error { print(error); return }
-                guard let apiResponse = response.value else { return }
-                completion(apiResponse)
+//                if let error = response.error { print(error); return }
+//                guard let apiResponse = response.value else { return }
+//                completion(apiResponse)
+                
+                switch response.result {
+                case .success(let character):
+                    completion(character)
+                case .failure(let error):
+                    print(error)
+                }
         }
     }
 }
